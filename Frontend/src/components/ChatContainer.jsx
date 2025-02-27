@@ -6,6 +6,7 @@ import MessageInput from "./MessageInput";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 import { useAuthStore } from "../store/useAuthStore";
 import { formatMessageTime } from "../lib/utils";
+import avatar from "../assets/avatar.png";
 
 const ChatContainer = () => {
   const {
@@ -42,7 +43,6 @@ const ChatContainer = () => {
       </div>
     );
   }
-
   return (
     <div className="flex-1 flex flex-col overflow-auto">
       <ChatHeader />
@@ -59,11 +59,12 @@ const ChatContainer = () => {
                 <img
                   src={
                     message.senderId === authUser._id
-                      ? authUser.profilePic || "/avatar.png"
-                      : selectedUser.profilePic || "/avatar.png"
+                      ? authUser.profilePic || avatar
+                      : selectedUser.profilePic || avatar
                   }
                   alt="profile pic"
                 />
+                
               </div>
             </div>
             <div className="chat-header mb-1">
